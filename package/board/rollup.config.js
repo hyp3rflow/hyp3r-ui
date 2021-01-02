@@ -1,25 +1,23 @@
-import babel from 'rollup-plugin-babel';
-import external from 'rollup-plugin-peer-deps-external';
-import resolve from 'rollup-plugin-node-resolve';
-import typescript from 'rollup-plugin-typescript2';
+import resolve from '@rollup/plugin-node-resolve';
+import babel from '@rollup/plugin-babel';
+import typescript from '@rollup/plugin-typescript';
 import pkg from './package.json';
 
-const ext = ['.js', '.jsx', '.ts', '.tsx'];
+const extensions = ['.js', '.jsx', '.ts', '.tsx'];
 
 process.env.BABEL_ENV = 'production';
 
 export default {
   input: './src/index.ts',
-  external: ['styled-components'],
+  external: ['styled-components', 'react', 'react-dom'],
   plugins: [
     typescript({ typescript: require('typescript') }),
-    external(),
-    resolve({ ext }),
+    resolve({ extensions }),
     babel({
-      ext,
+      extensions,
       include: ['src/**/*'],
       exclude: 'node_modules/**',
-      runtimeHelpers: true,
+      babelHelpers: 'runtime',
     }),
   ],
   output: [{ file: pkg.module, format: 'es' }],
