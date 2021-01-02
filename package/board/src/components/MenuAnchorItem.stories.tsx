@@ -1,6 +1,8 @@
 import React from 'react';
+import { BiChalkboard } from 'react-icons/bi';
+import { MdAnnouncement } from 'react-icons/md';
 import { Story, Meta } from '@storybook/react/types-6-0';
-import { MenuAnchorItem, menuAnchorItemProps } from './MenuAnchorItem';
+import { MenuAnchorItem, IProp } from './MenuAnchorItem';
 
 export default {
   title: 'component/MenuAnchorItem',
@@ -13,11 +15,16 @@ export default {
   },
 } as Meta;
 
-const Template: Story<menuAnchorItemProps> = args => (
-  <MenuAnchorItem {...args} />
-);
+const Template: Story<IProp> = args => <MenuAnchorItem {...args} />;
 
-export const Primary = Template.bind({});
-Primary.args = {
+export const Board = Template.bind({});
+Board.args = {
   label: '게시판',
+  icon: <BiChalkboard />,
+};
+
+export const Notice = Template.bind({});
+Notice.args = {
+  label: '공지사항',
+  icon: <MdAnnouncement />,
 };
