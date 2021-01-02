@@ -9,7 +9,7 @@ process.env.BABEL_ENV = 'production';
 
 export default {
   input: './src/index.ts',
-  external: ['styled-components', 'react', 'react-dom'],
+  external: ['styled-components', 'react', 'react-dom', 'react-icons'],
   plugins: [
     typescript({ typescript: require('typescript') }),
     resolve({ extensions }),
