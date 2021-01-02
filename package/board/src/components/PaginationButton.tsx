@@ -1,18 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export interface paginationButtonProps extends styledPaginationButtonProps {
-  label?: string;
-  onClick?: () => void;
-  href?: string;
-}
-
-interface styledPaginationButtonProps {
+interface IOption {
   bgColor?: string;
   color?: string;
 }
 
-export const PaginationButton = (args: paginationButtonProps) => {
+export interface IProp extends IOption {
+  isChecked?: boolean;
+  label?: number;
+  onClick?: () => void;
+  href?: string;
+}
+
+export const PaginationButton = (args: IProp) => {
   return (
     <StyledPaginationButton onClick={args.onClick} href={args.href} {...args}>
       {args.label}
@@ -20,7 +21,7 @@ export const PaginationButton = (args: paginationButtonProps) => {
   );
 };
 
-const StyledPaginationButton = styled.a<styledPaginationButtonProps>`
+const StyledPaginationButton = styled.a<IProp>`
   display: inline-block;
   width: 28px;
   height: 28px;
@@ -31,6 +32,11 @@ const StyledPaginationButton = styled.a<styledPaginationButtonProps>`
   text-align: center;
   cursor: pointer;
 
-  background-color: ${p => p.bgColor || '#1EA7FD'};
-  color: ${p => p.color || 'white'};
+  background-color: ${p => (p.isChecked ? p.bgColor || '#1EA7FD' : '#fff')};
+  color: ${p => (p.isChecked ? p.color || '#fff' : '#000')};
+
+  &:link,
+  &:visited {
+    text-decoration: none;
+  }
 `;
