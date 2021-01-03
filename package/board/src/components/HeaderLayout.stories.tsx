@@ -10,7 +10,7 @@ import { MenuAnchorItem } from './MenuAnchorItem';
 import { Board, Notice } from './MenuAnchorItem.stories';
 
 export default {
-  title: 'component/HeaderLayout',
+  title: 'document/HeaderLayout',
   component: HeaderLayout,
 } as Meta;
 
