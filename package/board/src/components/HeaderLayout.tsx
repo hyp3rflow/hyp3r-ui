@@ -39,7 +39,10 @@ const StyledHeader = styled.header`
   width: 100vw;
   height: 60px;
 
+  background-color: #fff;
   border-bottom: 1px solid rgb(246, 246, 246);
+
+  z-index: 20;
 `;
 
 const StyledLayout = styled.div`
