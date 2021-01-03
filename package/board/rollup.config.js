@@ -1,5 +1,6 @@
 import resolve from '@rollup/plugin-node-resolve';
 import babel from '@rollup/plugin-babel';
+import url from '@rollup/plugin-url';
 import typescript from '@rollup/plugin-typescript';
 import pkg from './package.json';
 
@@ -19,6 +20,7 @@ export default {
       exclude: 'node_modules/**',
       babelHelpers: 'runtime',
     }),
+    url(),
   ],
   output: [{ file: pkg.module, format: 'es' }],
 };
