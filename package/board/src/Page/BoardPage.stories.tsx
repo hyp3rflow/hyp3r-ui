@@ -1,22 +1,42 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
-import { PostListTable } from './PostListTable';
-import { BoardTitle } from './BoardTitle';
-import { Group } from './PaginationButton.stories';
+import { PostListTable } from '../components/PostListTable';
+import { BoardTitle } from '../components/BoardTitle';
+import { Group } from '../components/PaginationButton.stories';
+import { Header } from '../components/HeaderLayout.stories';
+import styled from 'styled-components';
+import { Button } from '../components/Button';
 
 export default {
-  title: 'document/Page',
+  title: 'document/BoardPage',
 } as Meta;
 
 export const Board: Story = () => {
   return (
-    <div>
-      <BoardTitle title="공지사항" />
-      <PostListTable posts={posts} />
-      <Group length={10} />
-    </div>
+    <>
+      <Header />
+      <Layout>
+        <PageLayout>
+          <BoardTitle title="공지사항" />
+          <PostListTable posts={posts} />
+          <Button label="글 작성" bgColor="#1EA7FD" color="#fff" />
+          <Group length={10} />
+        </PageLayout>
+      </Layout>
+    </>
   );
 };
+
+const PageLayout = styled.div`
+  max-width: 1024px;
+  margin: 0 auto;
+`;
+
+const Layout = styled.div`
+  width: 100vw;
+  min-width: 1024px;
+  margin-top: 100px;
+`;
 
 const posts = [
   {
