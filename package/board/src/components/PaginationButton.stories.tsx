@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import { PaginationButton, IProp } from './PaginationButton';
 
@@ -30,14 +31,23 @@ interface IGroupProp {
   length: number;
 }
 export const Group: Story<IGroupProp> = args => (
-  <div>
+  <GroupContainer>
     {Array.from(Array(args.length).keys()).map((_, idx) => {
       return (
         <PaginationButton key={idx} label={idx + 1} isChecked={idx === 0} />
       );
     })}
-  </div>
+  </GroupContainer>
 );
 Group.args = {
   length: 10,
 };
+
+const GroupContainer = styled.div`
+  width: 1024px;
+  display: flex;
+  align-item: center;
+  justify-content: center;
+
+  margin: 10px;
+`;
