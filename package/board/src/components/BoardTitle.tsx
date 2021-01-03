@@ -27,8 +27,11 @@ const TitleHeading = styled.h1`
   &::after {
     position: absolute;
     right: -22px;
+
     width: 15px;
     height: 15px;
+    box-sizing: border-box;
+
     background-color: #1ea7fd;
 
     transition: all 0.2s ease;
@@ -39,7 +42,6 @@ const TitleHeading = styled.h1`
   }
 
   &:hover::after {
-    right: -30px;
     transform: rotate(90deg);
   }
 `;

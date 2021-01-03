@@ -10,6 +10,7 @@ interface styledButtonProps {
   fontSize?: string;
   radius?: string;
   padding?: string;
+  margin?: string;
 }
 
 export interface buttonProps extends styledButtonProps {
@@ -27,8 +28,9 @@ const StyledButton = styled.button<styledButtonProps>`
   height: ${p => p.height || '36px'};
   border-radius: ${p => p.radius || '5px'};
   background-color: ${p => p.bgColor || '#fff'};
-  color: ${p => p.color || 'white'};
+  color: ${p => p.color || '#000'};
   padding: ${p => p.padding || '5px'};
+  margin: ${p => p.margin || '10px'};
 
   font-size: ${p => p.fontSize || '14px'};
 `;
