@@ -15,10 +15,15 @@ interface styledButtonProps {
 
 export interface buttonProps extends styledButtonProps {
   label: string;
+  onClick?: () => void;
 }
 
 export const Button = (args: buttonProps) => {
-  return <StyledButton {...args}>{args.label}</StyledButton>;
+  return (
+    <StyledButton {...args} onClick={args.onClick}>
+      {args.label}
+    </StyledButton>
+  );
 };
 
 const StyledButton = styled.button<styledButtonProps>`
