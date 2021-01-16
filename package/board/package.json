@@ -6,6 +6,7 @@
   "scripts": {
     "build": "rollup -c",
     "build:types": "tsc --emitDeclarationOnly",
+    "build:sb": "build-storybook -s public",
     "storybook": "start-storybook -p 9009 -s public"
   },
   "license": "MIT",
